@@ -18,9 +18,18 @@ public class StartUp {
        
         HRService hr = new HRService();
         
-        hr.createNewEmployee("Alex" , "Plouff" , "A101" , EmployeeType.HOURLY);
+        Employee dan = new HourlyEmployee( "Dan" , "Rogers" , "A101" ,
+                                        15.00 , 80);
+        Employee alex = new SalaryEmployee( "Alex" , "Plouff" , "A102" ,
+                                        60000);
+        Employee chris = new SalaryEmployee( "Chris" , "Smith" , "A103" ,
+                                        70000);
         
+        hr.createNewEmployee(alex);
+        hr.createNewEmployee(dan);
+        hr.createNewEmployee(chris);
         
+        System.out.println(hr.map.get("A102"));
     }
     
 }

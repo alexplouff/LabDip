@@ -8,7 +8,7 @@ package dip.lab2;
  *
  * @author your name goes here
  */
-public class BaggageServiceTipCalculator implements CalculatorInterface {
+public class BaggageServiceTipCalculator implements TipCalculator {
     private static final double MIN_BILL = 0.00;
     private static final double MAX_BILL = 100.00;
     private static final String BILL_ENTRY_ERR =
@@ -20,7 +20,6 @@ public class BaggageServiceTipCalculator implements CalculatorInterface {
 
     private double baseTipPerBag;
     private int bagCount;
-
     private ServiceQuality serviceQuality;
 
     public BaggageServiceTipCalculator(ServiceQuality q, int bags) {
@@ -83,11 +82,13 @@ public class BaggageServiceTipCalculator implements CalculatorInterface {
         }
         this.baseTipPerBag = baseTipPerBag;
     }
+    
+    
 
     @Override
     public String toString(){
         return "Bag Count: " + bagCount
-                +"\nService Quality: " + getServiceQuality()
+                +"\nService Quality: " + serviceQuality
                 +"\nTip/Bag: " + baseTipPerBag
                 +"\nTip Amount: $" + getTipAmount();
     }

@@ -11,6 +11,9 @@ package student.solution;
  */
 public interface Employee {
     
+    public final static int MONTHS_IN_YEAR = 12;
+    public final static int WEEKS_IN_YEAR = 52;
+    
     public abstract void setFirstName( String firstName );
     public abstract String getFirstName();
     
@@ -20,10 +23,12 @@ public interface Employee {
     public abstract void setEmployeeID( String employeeID );
     public abstract String getEmployeeID();
     
-    public abstract void setPaymentType( EmployeeType paymentType );
-    public abstract EmployeeType getPaymentType();
-    
     public abstract double getAnnualTakeHome();
     
+    public abstract double getMonthlyTakeHome();
+    
+    public abstract double getBiWeeklyTakeHome();
+    
+    @Override
     public abstract String toString();
 }

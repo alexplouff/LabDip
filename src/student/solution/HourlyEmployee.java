@@ -14,20 +14,19 @@ public class HourlyEmployee implements Employee{
     private String firstName;
     private String lastName;
     private String employeeID;
+    private double hoursWorked;
     
     private double hourlyRate;
     
-    private EmployeeType paymentType;
-    
 
     public HourlyEmployee(String firstName, String lastName, String employeeID,
-            double hourlyRate, EmployeeType paymentType) {
+            double hourlyRate , double hoursWorked ) {
         
         setFirstName( firstName );
         setLastName( lastName );
         setEmployeeID( employeeID );
         this.hourlyRate = hourlyRate;
-        setPaymentType( paymentType );
+        setHoursWorked( hoursWorked );
         
     }
 
@@ -39,16 +38,30 @@ public class HourlyEmployee implements Employee{
         this.hourlyRate = hourlyRate;
     }
 
+    public double getHoursWorked() {
+        return hoursWorked;
+    }
+
+    public final void setHoursWorked(double hoursWorked) {
+        this.hoursWorked = hoursWorked;
+    }
+
+    @Override
     public double getMonthlyTakeHome() {
-        double monthlyTakeHome = 0; 
-        monthlyTakeHome = hourlyRate * 160;
+        double monthlyTakeHome = hourlyRate * 160;
         return monthlyTakeHome;
     }
 
+    @Override
     public double getAnnualTakeHome() {
-        double annualTakeHome = 0;
-        annualTakeHome = getMonthlyTakeHome() * 12;
+        double annualTakeHome = getMonthlyTakeHome() * 12;
         return annualTakeHome;
+    }
+    
+    @Override
+    public double getBiWeeklyTakeHome(){
+        double biWeeklyTakeHome = hourlyRate * hoursWorked;
+        return biWeeklyTakeHome;
     }
     
     //    implementations 
@@ -82,21 +95,10 @@ public class HourlyEmployee implements Employee{
     public String getEmployeeID() {
         return employeeID;
     }
-
-    @Override
-    public final void setPaymentType(EmployeeType paymentType) {
-        this.paymentType = paymentType;
-    }
-
-    @Override
-    public EmployeeType getPaymentType() {
-        return paymentType;
-    }
     
     @Override
     public String toString(){
         return "Name: " + firstName + " " + lastName
-                +"\nPayment Type: " + paymentType
                 +"\nHourly Rate: $" + hourlyRate
                 +"\nMonthly TakeHome: $" + getMonthlyTakeHome()
                 +"\nYearly TakeHome: $" + getAnnualTakeHome();

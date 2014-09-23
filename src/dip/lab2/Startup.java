@@ -24,10 +24,10 @@ public class Startup {
     public static void main(String[] args) {
         
        
-        CalculatorService calculatorType = 
-                         new CalculatorService( 
-                                    new BaggageServiceTipCalculator(
-                                            ServiceQuality.FAIR , 6
+        TipCalculatorService calculatorType = 
+                         new TipCalculatorService( 
+                                    new FoodServiceTipCalculator(
+                                            ServiceQuality.GOOD , 6
                                     ) 
         );
         

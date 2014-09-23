@@ -9,12 +9,12 @@ package dip.lab2;
  *
  * @author Alex
  */
-public class CalculatorService {
+public class TipCalculatorService {
     
-    private final CalculatorInterface calculatorType;
+    private final TipCalculator calculatorType;
 
     
-    public CalculatorService ( CalculatorInterface calculatorType ){
+    public TipCalculatorService ( TipCalculator calculatorType ){
         this.calculatorType = calculatorType;
     }
     
